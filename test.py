@@ -25,4 +25,4 @@ def softmax(x):
   sum = np.sum(exp)
   return exp / sum
 
-mnist.load_mnist()
+mnist.load()
