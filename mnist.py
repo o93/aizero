@@ -109,7 +109,7 @@ def load(normalize=True, flatten=True, one_hot_label=False):
     for key in (key_train_img, key_test_img):
       dataset[key] = dataset[key].reshape(-1, 1, 28, 28)
 
-  return dataset
+  return (dataset[key_train_img], dataset[key_train_label]), (dataset[key_test_img], dataset[key_test_label])
 
 if __name__ == "__main__":
   init()
