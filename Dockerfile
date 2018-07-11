@@ -1,6 +1,6 @@
 FROM python:3
 
-MAINTAINER Hayato Okuda <okuda@a-tm.co.jp>
+MAINTAINER Hayato Okuda <oueiiti7@gmail.com>
 
 RUN apt-get update && apt-get upgrade -y
 

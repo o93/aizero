@@ -2,35 +2,13 @@
 
 import numpy as np
 import pickle
-import matplotlib
 import mnist
+import func
+import matplotlib
 matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 
-from PIL import Image
-
-def step(x):
-  return np.array(x > 0, dtype=np.int)
-
-def sigmoid(x):
-  return 1 / (1 + np.exp(-x))
-
-def relu(x):
-  return np.maximum(0, x)
-
-def identity(x):
-  return x
-
-def softmax(x):
-  max = np.max(x)
-  exp = np.exp(x - max)
-  sum = np.sum(exp)
-  return exp / sum
-
-def save_img(img, file_path):
-  pil_img = Image.fromarray(np.uint8(img))
-  pil_img.save(file_path)
 
 def load_data():
   (x_train, t_train), (x_test, t_test) = mnist.load(normalize=True, flatten=True, one_hot_label=False)
@@ -47,11 +25,11 @@ def predict(network, x):
   b1, b2, b3 = network["b1"], network["b2"], network["b3"]
 
   a1 = np.dot(x, W1) + b1
-  z1 = sigmoid(a1)
+  z1 = func.sigmoid(a1)
   a2 = np.dot(z1, W2) + b2
-  z2 = sigmoid(a2)
+  z2 = func.sigmoid(a2)
   a3 = np.dot(z2, W3) + b3
-  y = softmax(a3)
+  y = func.softmax(a3)
 
   return y
 

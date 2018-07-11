@@ -83,7 +83,7 @@ def init():
   print("Done")
 
 def _change_one_hot_label(x):
-  t = np.zeros(x.size, 10)
+  t = np.zeros((x.size, 10))
   for idx, row in enumerate(t):
     row[x[idx]] = 1
 
@@ -103,7 +103,7 @@ def load(normalize=True, flatten=True, one_hot_label=False):
 
   if one_hot_label:
     for key in (key_train_label, key_test_label):
-      dataset[key] = _change_ont_hot_label(dataset[key])
+      dataset[key] = _change_one_hot_label(dataset[key])
 
   if not flatten:
     for key in (key_train_img, key_test_img):
