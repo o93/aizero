@@ -6,7 +6,6 @@ import mnist
 import func
 import matplotlib
 matplotlib.use('Agg')
-
 import matplotlib.pyplot as plt
 
 from two_layer_net import TwoLayerNet
